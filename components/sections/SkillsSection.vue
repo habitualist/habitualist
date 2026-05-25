@@ -1,13 +1,11 @@
 <script setup lang="ts">
 const skills = [
-  { name: 'TypeScript', level: 92 },
-  { name: 'Vue / Nuxt', level: 90 },
-  { name: 'React / Next.js', level: 88 },
-  { name: 'Node.js', level: 84 },
-  { name: 'Tailwind CSS', level: 95 },
-  { name: 'GSAP / Motion', level: 86 },
-  { name: 'PostgreSQL', level: 78 },
-  { name: 'AWS / Docker', level: 72 }
+  { name: 'JavaScript / HTML / CSS', level: 88 },
+  { name: 'Full-Stack Web Dev',      level: 85 },
+  { name: 'Git & GitHub',            level: 80 },
+  { name: 'AI Prompt Engineering',   level: 80 },
+  { name: 'Workflow Automation',     level: 72 },
+  { name: 'Nuxt.js / Vue',           level: 70 },
 ]
 </script>
 

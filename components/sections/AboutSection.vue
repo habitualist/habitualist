@@ -54,24 +54,13 @@ const stats = [
                 aria-hidden="true"
                 class="pointer-events-none absolute bottom-0 right-0 h-6 w-6 border-b-2 border-r-2 border-accent/50 rounded-br-2xl z-[2]"
               />
-              <div class="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-elevated">
-                <div
-                  class="flex h-14 w-14 items-center justify-center rounded-full border border-hairline-glow bg-base"
-                >
-                  <span class="font-display text-2xl text-accent leading-none select-none">ON</span>
-                </div>
-                <span class="font-mono text-[8px] uppercase tracking-[0.18em] text-ink-dim text-center px-4">
-                  Photo<br />Coming Soon
-                </span>
-              </div>
-              <img
+              <NuxtImg
                 src="/images/obi2.jpeg"
                 alt="Obinna Nnaochin"
-                class="absolute inset-0 h-full w-full object-cover object-top transition-opacity duration-700"
+                class="absolute inset-0 h-full w-full object-cover object-top z-[1]"
                 loading="lazy"
-                style="opacity: 0;"
-                @load="(e: Event) => { (e.target as HTMLImageElement).style.opacity = '1' }"
-                @error="(e: Event) => { (e.target as HTMLImageElement).remove() }"
+                width="200"
+                height="267"
               />
             </div>
           </FadeUp>
