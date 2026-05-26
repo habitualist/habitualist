@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const stack = [
-  'React', 'Next.js', 'Vue', 'Nuxt', 'TypeScript', 'Node.js',
-  'PostgreSQL', 'Tailwind CSS', 'AWS', 'Docker', 'GSAP', 'Three.js'
+  'HTML', 'CSS', 'JavaScript', 'TypeScript', 'Vue', 'Nuxt.js',
+  'Git', 'GitHub', 'Figma', 'Python', 'GSAP', 'Three.js', 'AI Tools'
 ]
 // Duplicate for seamless loop
 const doubled = [...stack, ...stack]

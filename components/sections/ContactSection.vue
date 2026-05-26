@@ -1,9 +1,9 @@
 <script setup lang="ts">
 const channels = [
-  { label: 'EMAIL',    value: 'hello@promiseworth.dev', href: 'mailto:hello@promiseworth.dev' },
-  { label: 'LINKEDIN', value: '@promiseworth',          href: '#'  },
-  { label: 'GITHUB',   value: '@promiseworth',          href: '#'  },
-  { label: 'WHATSAPP', value: '+— available on request', href: '#' }
+  { label: 'EMAIL',    value: 'nnaochinobinna001@gmail.com',    href: 'mailto:nnaochinobinna001@gmail.com' },
+  { label: 'LINKEDIN', value: 'obinna-nnaochin',                href: 'https://linkedin.com/in/obinna-nnaochin' },
+  { label: 'GITHUB',   value: '@habitualist',                   href: 'https://github.com/habitualist' },
+  { label: 'WHATSAPP', value: 'Available on request',           href: '#' }
 ]
 </script>
 
@@ -25,8 +25,8 @@ const channels = [
       </FadeUp>
 
       <FadeUp variant="fade-up" :delay="0.3" class="mt-12 inline-flex">
-        <AppButton variant="primary" size="lg" href="mailto:hello@promiseworth.dev">
-          hello@promiseworth.dev
+        <AppButton variant="primary" size="lg" href="mailto:nnaochinobinna001@gmail.com">
+          nnaochinobinna001@gmail.com
         </AppButton>
       </FadeUp>
 

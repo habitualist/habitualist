@@ -5,24 +5,30 @@ import gsap from 'gsap'
 const projects = [
   {
     n: '01',
-    title: 'SNL Spatrack Architecture',
-    desc: 'A modern architecture and construction platform focused on premium design, responsive layouts, and client engagement.',
-    tech: ['Next.js', 'Tailwind', 'Framer Motion'],
-    accent: 'rgba(0, 255, 136, 0.6)'
+    title: 'Spatrack Architecture',
+    desc: 'Professional website for a Lagos architecture and construction company — presenting design, construction, and engineering services with a clean, responsive layout.',
+    tech: ['Responsive Web', 'Figma-to-Dev', 'Nuxt', 'Tailwind'],
+    image: '/images/projects/spatrack.png',
+    accent: 'rgba(0, 255, 136, 0.5)',
+    href: 'https://spatrack.netlify.app'
   },
   {
     n: '02',
-    title: 'Heart Interrupted Podcast',
-    desc: 'A storytelling and podcast experience designed around emotional narratives, healing, and personal growth.',
-    tech: ['React', 'Node.js', 'TypeScript'],
-    accent: 'rgba(255, 120, 200, 0.6)'
+    title: 'Developer Portfolio',
+    desc: 'A cinematic portfolio with a 3D wireframe globe, smooth scrolling, and a custom animated nav — built on Nuxt 4 with reusable components.',
+    tech: ['Nuxt 4', 'Vue 3', 'TypeScript', 'GSAP', 'TresJS'],
+    image: null,
+    accent: 'rgba(80, 160, 255, 0.5)',
+    href: null
   },
   {
     n: '03',
-    title: 'Developer Portfolio',
-    desc: 'A futuristic portfolio experience with cinematic interactions and motion-heavy design.',
-    tech: ['Nuxt', 'GSAP', 'TresJS'],
-    accent: 'rgba(80, 160, 255, 0.6)'
+    title: 'Freelance Web Projects',
+    desc: 'Websites and landing pages for individuals and businesses — combining clean UI, responsive layouts, and AI-assisted workflow automation.',
+    tech: ['HTML', 'CSS', 'JavaScript', 'Vue', 'Figma'],
+    image: null,
+    accent: 'rgba(255, 180, 60, 0.45)',
+    href: null
   }
 ]
 
@@ -42,7 +48,6 @@ onMounted(() => {
   const updateParallax = () => {
     const scrollLeft = track.scrollLeft
     const trackWidth = track.clientWidth
-
     cardRefs.forEach((card) => {
       if (!card) return
       const cardCenter = card.offsetLeft + card.offsetWidth / 2
@@ -54,7 +59,6 @@ onMounted(() => {
 
   track.addEventListener('scroll', updateParallax, { passive: true })
   updateParallax()
-
   removeListener = () => track.removeEventListener('scroll', updateParallax)
 })
 
@@ -68,27 +72,25 @@ onBeforeUnmount(() => {
 
 <template>
   <section id="projects" class="relative isolate overflow-hidden py-32 md:py-48 bg-base">
-    <GridOverlay :size="80" :opacity="0.04" />
-    <GlowOrb class="right-[-10%] top-[20%]" size="600px" :blur="120" />
+    <GridOverlay :size="80" :opacity="0.03" />
 
-    <!-- Header stays inside the normal container -->
+    <!-- Header -->
     <div class="container-x relative z-[10]">
       <FadeUp variant="fade-up" class="mb-16 flex items-end justify-between gap-6 flex-wrap">
         <div>
           <SectionLabel num="04" label="Selected Work" />
           <h2 class="mt-6 font-display text-display-sm uppercase leading-[0.9] text-ink text-balance max-w-3xl">
-            Recent <span class="text-accent">projects</span>.
+            Things I've <span class="text-accent">built</span>.
           </h2>
         </div>
-        <p class="max-w-md text-ink-muted">
-          A selection of platforms, products, and experiences I've built recently.
+        <p class="max-w-sm text-ink-muted text-sm">
+          Real projects, shipped to real clients. Click any card to see it live.
         </p>
       </FadeUp>
     </div>
 
-    <!-- Carousel: breaks out of container-x to bleed right -->
+    <!-- Carousel -->
     <div class="relative z-[10]">
-      <!-- Right-edge fade hint -->
       <div
         class="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-base to-transparent"
         aria-hidden="true"
@@ -106,7 +108,7 @@ onBeforeUnmount(() => {
           v-for="(p, i) in projects"
           :key="p.title"
           :ref="(el) => setCardRef(el, i)"
-          class="projects-card flex-shrink-0 w-[82vw] sm:w-[60vw] lg:w-[38vw] max-w-[480px] will-change-transform"
+          class="projects-card flex-shrink-0 w-[82vw] sm:w-[60vw] lg:w-[38vw] max-w-[500px] will-change-transform"
         >
           <TiltCard :max="4" class="h-full">
             <FadeUp
@@ -114,26 +116,60 @@ onBeforeUnmount(() => {
               :delay="0.05 * i"
               class="group glass glass-hover relative h-full overflow-hidden rounded-3xl p-1"
             >
-              <!-- Preview area -->
-              <div
-                class="relative aspect-[4/5] overflow-hidden rounded-[20px]"
-                :style="{ background: `radial-gradient(circle at 30% 20%, ${p.accent}, rgba(11,13,20,0.9) 60%, #0B0D14 100%)` }"
-              >
-                <div class="absolute inset-0 grid-overlay opacity-40" />
-                <div class="absolute left-6 top-6 font-mono text-[10px] uppercase tracking-[0.22em] text-ink-muted">
-                  / {{ p.n }}
+              <!-- Preview area: screenshot if available, gradient fallback otherwise -->
+              <div class="relative aspect-[16/10] overflow-hidden rounded-[20px]">
+
+                <!-- Screenshot image -->
+                <NuxtImg
+                  v-if="p.image"
+                  :src="p.image"
+                  :alt="p.title + ' screenshot'"
+                  class="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+                  loading="lazy"
+                  width="500"
+                  height="313"
+                />
+
+                <!-- Gradient fallback when no screenshot yet -->
+                <div
+                  v-else
+                  class="absolute inset-0"
+                  :style="{ background: `radial-gradient(circle at 30% 20%, ${p.accent}, rgba(11,13,20,0.9) 60%, #0B0D14 100%)` }"
+                >
+                  <div class="absolute inset-0 grid-overlay opacity-40" />
+                  <div class="absolute inset-0 flex items-center justify-center">
+                    <span class="font-display text-5xl uppercase text-ink/20">{{ p.title }}</span>
+                  </div>
                 </div>
-                <div class="absolute inset-x-6 bottom-6">
-                  <h3 class="font-display text-3xl uppercase leading-[0.95] text-ink text-balance">
-                    {{ p.title }}
-                  </h3>
+
+                <!-- Overlay on screenshot: number badge + live link button -->
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <div class="absolute left-4 top-4">
+                  <span class="font-mono text-[10px] uppercase tracking-[0.22em] text-ink-muted bg-base/60 backdrop-blur-sm px-2 py-1 rounded">
+                    / {{ p.n }}
+                  </span>
+                </div>
+                <div v-if="p.href" class="absolute right-4 top-4">
+                  <a
+                    :href="p.href"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-ink bg-accent/90 hover:bg-accent px-3 py-1.5 rounded transition-colors"
+                    @click.stop
+                  >
+                    View Live
+                    <svg width="9" height="9" viewBox="0 0 10 10" fill="none">
+                      <path d="M1 9L9 1M9 1H3M9 1V7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                  </a>
                 </div>
               </div>
 
               <!-- Body -->
-              <div class="relative px-6 py-6">
-                <p class="text-sm leading-relaxed text-ink-muted">{{ p.desc }}</p>
-                <div class="mt-5 flex flex-wrap gap-2">
+              <div class="relative px-5 py-5">
+                <h3 class="font-display text-2xl uppercase leading-tight text-ink">{{ p.title }}</h3>
+                <p class="mt-2 text-sm leading-relaxed text-ink-muted">{{ p.desc }}</p>
+                <div class="mt-4 flex flex-wrap gap-2">
                   <span
                     v-for="t in p.tech"
                     :key="t"
@@ -147,7 +183,6 @@ onBeforeUnmount(() => {
           </TiltCard>
         </div>
 
-        <!-- Trailing spacer so the last card can snap to start and the right edge fade works -->
         <div class="flex-shrink-0 w-6 md:w-10 lg:w-16" aria-hidden="true" />
       </div>
     </div>

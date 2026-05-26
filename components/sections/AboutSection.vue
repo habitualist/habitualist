@@ -23,20 +23,32 @@ const stats = [
         <div class="lg:col-span-7 flex flex-col justify-center">
           <FadeUp variant="fade-up" :delay="0.1">
             <h2 class="font-display text-display-sm uppercase leading-[0.9] text-ink text-balance">
-              Building with<br />
-              <span class="text-accent">precision</span>, purpose<br />
-              &amp; motion.
+              Started in<br />
+              electrical labs.<br />
+              Now building<br />
+              <span class="text-accent">the web.</span>
             </h2>
           </FadeUp>
 
-          <FadeUp variant="fade-up" :delay="0.25" class="mt-10 max-w-xl">
+          <FadeUp variant="fade-up" :delay="0.25" class="mt-10 max-w-xl space-y-5">
             <p class="text-lg leading-relaxed text-ink-muted">
-              Obinna Nnaochin is an IT Specialist and Digital Consultant based in
-              Lagos, Nigeria, with 2–3 years across full-stack web development,
-              AI prompt engineering, and IT consulting. He builds and maintains
-              web applications, automates workflows, and provides hands-on
-              technical support and training — working inside real codebases with
-              Git/GitHub and Figma-to-development workflows.
+              I studied Electrical &amp; Electronics at Technical College in Abuja, then moved into
+              Computer Science — graduating with a <strong class="text-ink font-semibold">B.Tech from
+              Olusegun Agagu University</strong> in 2024. That path from hardware to software wasn't
+              accidental. I wanted to understand how things actually work, not just use them.
+            </p>
+            <p class="text-lg leading-relaxed text-ink-muted">
+              I now work as a <strong class="text-ink font-semibold">Full-Stack Web Developer</strong> —
+              currently building and maintaining production web interfaces as a Frontend Engineer at
+              <strong class="text-ink font-semibold">DOXA Spectrum</strong>, using Vue, Nuxt, and Git.
+              On the side I take on freelance projects — mostly websites and landing pages for
+              individuals and businesses, turning Figma designs into real, responsive code.
+            </p>
+            <p class="text-lg leading-relaxed text-ink-muted">
+              I also <strong class="text-ink font-semibold">teach</strong>. Whether it's basic computer
+              literacy or walking someone through their first Git workflow, I take that seriously.
+              Explaining tech clearly — at the right level for the person in front of you — is a
+              skill I've worked to develop.
             </p>
           </FadeUp>
 
