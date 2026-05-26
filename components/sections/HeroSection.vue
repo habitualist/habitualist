@@ -52,7 +52,7 @@ const scrollToContact = () => {
 <template>
   <section
     id="home"
-    class="relative isolate flex min-h-screen w-full items-center overflow-hidden bg-base pt-20 lg:pt-0"
+    class="relative isolate flex min-h-screen w-full items-start lg:items-center overflow-x-hidden bg-base pt-24 pb-16 lg:pt-0 lg:pb-0"
   >
     <!-- Globe background -->
     <div

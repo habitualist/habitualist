@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const items = [
-  { title: 'Frontend Engineering',    desc: 'Build and maintain user-facing web interfaces — responsive, production-ready components from Figma designs using Vue, Nuxt, and Git/GitHub workflows.', icon: 'M4 5h16M4 12h10M4 19h16' },
+  { title: 'Full-Stack Web Development', desc: 'Build and maintain complete web applications — from responsive front-end interfaces to back-end logic — using Vue, Nuxt, JavaScript, and Git/GitHub workflows.', icon: 'M4 5h16M4 12h10M4 19h16' },
   { title: 'IT Support & Consulting', desc: 'Hands-on technical support, troubleshooting, and digital consulting — diagnosing issues, advising on tools, and delivering dependable outcomes for clients.', icon: 'M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z' },
   { title: 'Tech Training & Education', desc: 'Teaching individuals IT skills — from basic computer literacy and digital tools through to intermediate tech, web, and software workflows.', icon: 'M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253' },
   { title: 'AI Prompt Engineering',   desc: 'Apply AI tools to accelerate development, automate content tasks, and build smarter workflows — getting real results from modern AI systems.', icon: 'M13 2L3 14h9l-1 8 10-12h-9l1-8z' },
@@ -18,7 +18,7 @@ const items = [
         <div>
           <SectionLabel num="03" label="Services" />
           <h2 class="mt-6 font-display text-display-sm uppercase leading-[0.9] text-ink text-balance max-w-3xl">
-            What I do, <br/>at a <span class="text-accent">premium</span> level.
+            What I <span class="text-accent">actually</span> do.
           </h2>
         </div>
       </FadeUp>

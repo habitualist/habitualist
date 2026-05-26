@@ -14,20 +14,29 @@ const projects = [
   },
   {
     n: '02',
+    title: 'SkillSwap',
+    desc: 'A peer-to-peer skill exchange platform where people trade skills instead of money — featuring user profiles, skill search, offer posting, and real-time skill matching. Free forever, no fees.',
+    tech: ['Vue', 'JavaScript', 'CSS', 'Netlify'],
+    image: '/images/projects/skillswap.png',
+    accent: 'rgba(0, 255, 136, 0.5)',
+    href: 'https://skillswap-sable-xi.vercel.app'
+  },
+  {
+    n: '03',
+    title: 'Keys & Keyboard',
+    desc: 'An interactive web app for learning keyboard keys, shortcuts, and computer literacy — hover-to-learn key definitions, categorized exercises, and coding warmup drills.',
+    tech: ['HTML', 'CSS', 'JavaScript'],
+    image: '/images/projects/keys-keyboard.png',
+    accent: 'rgba(80, 160, 255, 0.5)',
+    href: 'https://profound-pika-563ea5.netlify.app'
+  },
+  {
+    n: '04',
     title: 'Developer Portfolio',
     desc: 'A cinematic portfolio with a 3D wireframe globe, smooth scrolling, and a custom animated nav — built on Nuxt 4 with reusable components.',
     tech: ['Nuxt 4', 'Vue 3', 'TypeScript', 'GSAP', 'TresJS'],
     image: null,
     accent: 'rgba(80, 160, 255, 0.5)',
-    href: null
-  },
-  {
-    n: '03',
-    title: 'Freelance Web Projects',
-    desc: 'Websites and landing pages for individuals and businesses — combining clean UI, responsive layouts, and AI-assisted workflow automation.',
-    tech: ['HTML', 'CSS', 'JavaScript', 'Vue', 'Figma'],
-    image: null,
-    accent: 'rgba(255, 180, 60, 0.45)',
     href: null
   }
 ]
@@ -120,14 +129,12 @@ onBeforeUnmount(() => {
               <div class="relative aspect-[16/10] overflow-hidden rounded-[20px]">
 
                 <!-- Screenshot image -->
-                <NuxtImg
+                <img
                   v-if="p.image"
                   :src="p.image"
                   :alt="p.title + ' screenshot'"
                   class="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
                   loading="lazy"
-                  width="500"
-                  height="313"
                 />
 
                 <!-- Gradient fallback when no screenshot yet -->
