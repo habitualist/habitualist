@@ -121,7 +121,7 @@ const scrollToContact = () => {
             </span>
             <span class="block overflow-hidden">
               <SplitTextReveal
-                text="Full-Stack Developer"
+                text="Frontend Developer • IT Specialist"
                 :stagger="0.025"
                 :delay="0.38"
                 as="span"
@@ -139,9 +139,7 @@ const scrollToContact = () => {
           <!-- Subline: specific, human, first-person -->
           <FadeUp :delay="0.75" class="mt-8 max-w-lg">
             <p class="text-base md:text-lg leading-relaxed text-ink-muted">
-              I build and deploy real web products, and
-              <strong class="text-ink font-semibold">train people in the tech behind them</strong>.
-              Lagos-based, open to freelance worldwide.
+              I build responsive web applications with Vue, Nuxt and JavaScript. I enjoy turning designs into production-ready interfaces and solving real business problems through clean, maintainable code.
             </p>
           </FadeUp>
 

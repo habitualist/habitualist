@@ -38,11 +38,7 @@ const stats = [
               accidental. I wanted to understand how things actually work, not just use them.
             </p>
             <p class="text-lg leading-relaxed text-ink-muted">
-              I now work as a <strong class="text-ink font-semibold">Full-Stack Web Developer</strong> —
-              currently building and maintaining production web interfaces as a Frontend Engineer at
-              <strong class="text-ink font-semibold">DOXA Spectrum</strong>, using Vue, Nuxt, and Git.
-              On the side I take on freelance projects — mostly websites and landing pages for
-              individuals and businesses, turning Figma designs into real, responsive code.
+              I'm currently a Frontend Developer Intern at DOXA Spectrum where I contribute to a production payroll and HR platform. I build responsive interfaces, maintain existing features, collaborate through Git and continue improving my knowledge of Vue, Nuxt and modern frontend development.
             </p>
             <p class="text-lg leading-relaxed text-ink-muted">
               I also <strong class="text-ink font-semibold">teach</strong>. Whether it's basic computer
