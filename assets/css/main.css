@@ -145,7 +145,7 @@ html.lenis body {
 
   /* Container with consistent gutter */
   .container-x {
-    @apply mx-auto w-full max-w-[1440px] px-6 md:px-10 lg:px-16;
+    @apply mx-auto w-full max-w-[1440px] px-4 sm:px-6 md:px-10 lg:px-16;
   }
 }
 

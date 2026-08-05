@@ -1,9 +1,14 @@
 <script setup lang="ts">
 import { useLoop } from '@tresjs/core'
-import { shallowRef } from 'vue'
+import { shallowRef, ref, onMounted } from 'vue'
 import * as THREE from 'three'
 
 const points = shallowRef<THREE.Points | null>(null)
+// ParticleField.vue already gates the canvas, but guard here too for safety
+const isTouch = ref(false)
+onMounted(() => {
+  isTouch.value = !window.matchMedia('(pointer: fine)').matches
+})
 
 const count = 400
 const positions = new Float32Array(count * 3)
@@ -18,6 +23,7 @@ for (let i = 0; i < count; i++) {
 
 const { onBeforeRender } = useLoop()
 onBeforeRender(({ elapsed }) => {
+  if (isTouch.value) return
   const p = points.value
   if (!p) return
   const attr = p.geometry.getAttribute('position') as THREE.BufferAttribute

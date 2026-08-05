@@ -33,18 +33,18 @@ const channels = [
       <FadeUp
         variant="fade-up"
         :delay="0.45"
-        class="mt-20 grid grid-cols-2 gap-4 max-w-3xl mx-auto md:grid-cols-4"
+        class="mt-20 grid grid-cols-1 gap-4 max-w-3xl mx-auto sm:grid-cols-2 md:grid-cols-4"
       >
         <a
           v-for="c in channels"
           :key="c.label"
           :href="c.href"
-          class="glass glass-hover group rounded-xl p-5 text-left"
+          class="glass glass-hover group rounded-xl p-5 text-left min-w-0"
         >
           <div class="font-mono text-[10px] uppercase tracking-[0.22em] text-ink-muted">
             {{ c.label }}
           </div>
-          <div class="mt-3 font-display text-lg uppercase text-ink group-hover:text-accent transition-colors">
+          <div class="mt-3 font-display text-base uppercase text-ink group-hover:text-accent transition-colors break-all leading-snug">
             {{ c.value }}
           </div>
         </a>

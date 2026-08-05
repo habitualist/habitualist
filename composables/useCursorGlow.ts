@@ -28,6 +28,8 @@ export function useCursorGlow() {
   }
 
   onMounted(() => {
+    // Skip lerp loop entirely on touch/coarse-pointer devices
+    if (!window.matchMedia('(pointer: fine)').matches) return
     rx = window.innerWidth / 2
     ry = window.innerHeight / 2
     tx.value = rx

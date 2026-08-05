@@ -9,6 +9,8 @@ const { smoothX, smoothY } = useMouse()
 const globeRef = shallowRef<THREE.Group | null>(null)
 const DoubleSide = THREE.DoubleSide
 const isHeroVisible = ref(true)
+// On coarse-pointer (touch) devices we skip the render loop entirely
+const isTouch = ref(false)
 
 const dotCount = 90
 const positions = new Float32Array(dotCount * 3)
@@ -24,6 +26,8 @@ for (let i = 0; i < dotCount; i++) {
 let observer: IntersectionObserver | null = null
 
 onMounted(() => {
+  isTouch.value = !window.matchMedia('(pointer: fine)').matches
+
   const hero = document.getElementById('home')
   if (!hero) return
   observer = new IntersectionObserver(
@@ -39,7 +43,8 @@ onBeforeUnmount(() => {
 
 const { onBeforeRender } = useLoop()
 onBeforeRender(({ delta }) => {
-  if (!isHeroVisible.value) return
+  // Skip all GPU work on touch / mobile devices
+  if (isTouch.value || !isHeroVisible.value) return
   const g = globeRef.value
   if (!g) return
   g.rotation.y += delta * 0.08

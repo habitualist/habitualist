@@ -6,7 +6,7 @@
         Things I've <span class="text-accent">built</span>.
       </h2>
 
-      <div class="mt-12 grid gap-8 lg:grid-cols-3">
+      <div class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
        <!-- Spatrack -->
       <div class="glass rounded-3xl overflow-hidden">
         <img
@@ -241,15 +241,15 @@
 
       <div class="mt-24 w-full glass rounded-3xl overflow-hidden">
         <div class="grid lg:grid-cols-2">
-         <img
+          <img
             src="/images/projects/doxa.png"
             alt="Doxa Spectrum"
-            class="w-full h-full object-cover object-top"
+            class="w-full h-56 sm:h-72 lg:h-full object-cover object-top"
           />
-          <div class="p-10">
+          <div class="p-6 sm:p-10">
             <div class="text-accent uppercase text-sm tracking-widest">Professional Experience</div>
-            <h2 class="font-display text-5xl mt-3">Doxa Spectrum</h2>
-            <div class="mt-8 space-y-6 text-ink-muted">
+            <h2 class="font-display text-3xl sm:text-5xl mt-3">Doxa Spectrum</h2>
+            <div class="mt-6 sm:mt-8 space-y-4 sm:space-y-6 text-ink-muted">
               <div><strong class="text-accent">Problem</strong><p>Enterprise payroll platform required responsive UI development and ongoing maintenance.</p></div>
               <div><strong class="text-accent">Solution</strong><p>Built responsive Vue/Nuxt components, maintained existing modules and collaborated through Git and code reviews.</p></div>
               <div><strong class="text-accent">Tech Stack</strong><p>Vue • Nuxt • TypeScript • Tailwind CSS • Git</p></div>

@@ -34,6 +34,8 @@ export function useMouse(options: { lerpAmount?: number } = {}) {
   }
 
   onMounted(() => {
+    // Skip mouse tracking entirely on touch/coarse-pointer devices
+    if (!window.matchMedia('(pointer: fine)').matches) return
     window.addEventListener('mousemove', onMove, { passive: true })
     raf = requestAnimationFrame(tick)
   })

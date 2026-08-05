@@ -31,10 +31,10 @@ export default <Partial<Config>>{
         mono: ['JetBrains Mono', 'ui-monospace', 'monospace']
       },
       fontSize: {
-        // Fluid display sizes
-        'display-sm': ['clamp(3rem, 8vw, 6rem)', { lineHeight: '0.9', letterSpacing: '-0.02em' }],
-        'display':    ['clamp(4rem, 12vw, 10rem)', { lineHeight: '0.88', letterSpacing: '-0.02em' }],
-        'display-lg': ['clamp(3rem, 9vw, 8rem)', { lineHeight: '0.92', letterSpacing: '-0.02em' }]
+        // Fluid display sizes — min clamped lower to stay readable at 320px
+        'display-sm': ['clamp(2.2rem, 7vw, 6rem)', { lineHeight: '0.9', letterSpacing: '-0.02em' }],
+        'display':    ['clamp(3rem, 11vw, 10rem)', { lineHeight: '0.88', letterSpacing: '-0.02em' }],
+        'display-lg': ['clamp(2.4rem, 8.5vw, 8rem)', { lineHeight: '0.92', letterSpacing: '-0.02em' }]
       },
       transitionTimingFunction: {
         'out-expo': 'cubic-bezier(0.16, 1, 0.3, 1)',

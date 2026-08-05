@@ -9,8 +9,12 @@ const scrollIndicator = ref<HTMLElement | null>(null)
 const globeWrapRef = ref<HTMLElement | null>(null)
 
 let globeTween: gsap.core.Tween | null = null
+// Detect desktop vs touch once so the template can branch
+const isDesktop = ref(false)
 
 onMounted(() => {
+  isDesktop.value = window.matchMedia('(pointer: fine)').matches
+
   if (scrollIndicator.value) {
     gsap.to(scrollIndicator.value, {
       y: 8,
@@ -21,7 +25,8 @@ onMounted(() => {
     })
   }
 
-  if (globeWrapRef.value) {
+  // Only wire up the scroll-shrink on desktop where the globe exists
+  if (isDesktop.value && globeWrapRef.value) {
     globeTween = gsap.to(globeWrapRef.value, {
       scale: 0.7,
       opacity: 0,
@@ -54,19 +59,36 @@ const scrollToContact = () => {
     id="home"
     class="relative isolate flex min-h-screen w-full items-start lg:items-center overflow-x-hidden bg-base pt-24 pb-16 lg:pt-0 lg:pb-0"
   >
-    <!-- Globe background -->
+    <!-- Globe background (desktop only) -->
     <div
       ref="globeWrapRef"
       aria-hidden="true"
       class="pointer-events-none absolute inset-0 z-[1]"
     >
+      <!-- On desktop: Three.js canvas with mouse parallax -->
       <div
+        v-if="isDesktop"
         class="h-full w-full opacity-90"
         style="transform: translate3d(calc(var(--mx) * -10px), calc(var(--my) * -10px), 0)"
       >
         <ClientOnly>
           <WireframeGlobe />
         </ClientOnly>
+      </div>
+      <!-- On mobile: lightweight CSS accent orb instead of Three.js -->
+      <div
+        v-else
+        class="absolute inset-0 flex items-center justify-center"
+      >
+        <div
+          class="rounded-full border border-accent/20 opacity-30"
+          style="
+            width: min(90vw, 420px);
+            height: min(90vw, 420px);
+            background: radial-gradient(circle, rgba(0,255,136,0.10) 0%, rgba(0,255,136,0.03) 50%, transparent 70%);
+            box-shadow: 0 0 60px rgba(0,255,136,0.12), inset 0 0 40px rgba(0,255,136,0.06);
+          "
+        />
       </div>
     </div>
 
@@ -136,7 +158,42 @@ const scrollToContact = () => {
             <span class="block h-[2px] w-8 bg-accent/30 rounded-full" />
           </FadeUp>
 
-          <!-- Subline: specific, human, first-person -->
+          <!-- Mobile portrait — shown between headline and bio on small screens -->
+          <FadeUp :delay="0.65" class="lg:hidden mt-8 flex justify-center">
+            <div
+              class="relative overflow-hidden rounded-2xl"
+              style="
+                width: 160px;
+                aspect-ratio: 3/4;
+                border: 1.5px solid rgba(0, 255, 136, 0.45);
+                box-shadow:
+                  0 0 0 1px rgba(0, 255, 136, 0.06),
+                  0 0 20px rgba(0, 255, 136, 0.22),
+                  0 0 50px rgba(0, 255, 136, 0.10);
+              "
+            >
+              <span aria-hidden="true" class="pointer-events-none absolute top-0 left-0 h-6 w-6 border-t-2 border-l-2 border-accent rounded-tl-2xl z-[4]" />
+              <span aria-hidden="true" class="pointer-events-none absolute bottom-0 right-0 h-6 w-6 border-b-2 border-r-2 border-accent rounded-br-2xl z-[4]" />
+              <div class="absolute inset-0 flex items-center justify-center bg-elevated z-[1]">
+                <span class="font-display text-2xl text-accent leading-none select-none">ON</span>
+              </div>
+              <NuxtImg
+                src="/images/obi1.jpeg"
+                alt="Obinna Nnaochin — Frontend Engineer"
+                width="160"
+                height="213"
+                loading="eager"
+                class="absolute inset-0 w-full h-full object-cover object-top z-[2]"
+              />
+              <div
+                aria-hidden="true"
+                class="pointer-events-none absolute inset-x-0 bottom-0 z-[3]"
+                style="height: 65%; background: linear-gradient(to bottom, transparent 0%, rgba(5,6,10,0.6) 40%, var(--bg-base) 75%);"
+              />
+            </div>
+          </FadeUp>
+
+          <!-- Subline -->
           <FadeUp :delay="0.75" class="mt-8 max-w-lg">
             <p class="text-base md:text-lg leading-relaxed text-ink-muted">
               I build responsive web applications with Vue, Nuxt and JavaScript. I enjoy turning designs into production-ready interfaces and solving real business problems through clean, maintainable code.

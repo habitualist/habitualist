@@ -1,5 +1,16 @@
+<script setup lang="ts">
+import { ref, onMounted } from 'vue'
+// Only render the heavy Three.js canvas on non-touch (desktop) devices.
+// On mobile we render nothing here — HeroSection shows a CSS accent orb fallback.
+const showCanvas = ref(false)
+onMounted(() => {
+  showCanvas.value = window.matchMedia('(pointer: fine)').matches
+})
+</script>
+
 <template>
   <TresCanvas
+    v-if="showCanvas"
     clear-color="#05060A"
     :alpha="true"
     :antialias="true"
